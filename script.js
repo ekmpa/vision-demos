@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
         do {
             x = Math.random() * (400 - width);
-            y = Math.random() * (400 - height);
+            y = Math.random() * (250 - height);
             attempts++;
         } while (existingBox && isColliding({ x, y, width, height }, existingBox.getBounds()) && attempts < maxAttempts);
     
@@ -93,7 +93,13 @@ document.addEventListener("DOMContentLoaded", function () {
     function checkCollision() {
         const box1Bounds = box1.getBounds();
         const box2Bounds = box2.getBounds();
-        if (isColliding(box1Bounds, box2Bounds)) {
+        const xOverlap = box1Bounds.x < box2Bounds.x + box2Bounds.width && box1Bounds.x + box1Bounds.width > box2Bounds.x;
+        const yOverlap = box1Bounds.y < box2Bounds.y + box2Bounds.height && box1Bounds.y + box1Bounds.height > box2Bounds.y;
+        const collision = xOverlap && yOverlap;
+        
+        updateProjections(box1Bounds, box2Bounds, xOverlap, yOverlap);
+        
+        if (collision) {
             box1.element.style.background = "#CD5C5C";
             box2.element.style.background = "#CD5C5C";
             box1.element.style.border = "2px solid white";
@@ -104,6 +110,24 @@ document.addEventListener("DOMContentLoaded", function () {
             box1.element.style.border = box1.originalBorder;
             box2.element.style.border = box2.originalBorder;
         }
+    }
+
+    function updateProjections(a, b, xOverlap, yOverlap) {
+        xProjection1.style.left = `${a.x}px`;
+        xProjection1.style.width = `${a.width}px`;
+        xProjection1.style.background = xOverlap ? "red" : "green";
+
+        xProjection2.style.left = `${b.x}px`;
+        xProjection2.style.width = `${b.width}px`;
+        xProjection2.style.background = xOverlap ? "red" : "green";
+
+        yProjection1.style.top = `${a.y}px`;
+        yProjection1.style.height = `${a.height}px`;
+        yProjection1.style.background = yOverlap ? "red" : "green";
+
+        yProjection2.style.top = `${b.y}px`;
+        yProjection2.style.height = `${b.height}px`;
+        yProjection2.style.background = yOverlap ? "red" : "green";
     }
 
     function getRandomPastelColor() {
@@ -126,11 +150,30 @@ document.addEventListener("DOMContentLoaded", function () {
     const demoContainer = document.getElementById("AABB-demo");
     demoContainer.style.position = "relative";
     demoContainer.style.width = "400px";
-    demoContainer.style.height = "400px";
+    demoContainer.style.height = "250px";
     demoContainer.style.border = "2px solid black";
     demoContainer.style.overflow = "hidden";
 
-    // And the boxes within it
+    const createProjection = (isHorizontal) => {
+        const proj = document.createElement("div");
+        proj.style.position = "absolute";
+        proj.style.background = "green";
+        if (isHorizontal) {
+            proj.style.height = "3px";
+            proj.style.width = "0px";
+        } else {
+            proj.style.width = "3px";
+            proj.style.height = "0px";
+        }
+        demoContainer.appendChild(proj);
+        return proj;
+    };
+
+    const xProjection1 = createProjection(true);
+    const xProjection2 = createProjection(true);
+    const yProjection1 = createProjection(false);
+    const yProjection2 = createProjection(false);
+
     const box1El = document.createElement("div");
     box1El.style.position = "absolute";
     box1El.style.cursor = "grab";
