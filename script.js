@@ -105,5 +105,26 @@ document.addEventListener("DOMContentLoaded", function () {
         return `rgb(${r}, ${g}, ${b})`;
     }
 
-    
+    // Creates the demo container
+    const demoContainer = document.getElementById("AABB-demo");
+    demoContainer.style.position = "relative";
+    demoContainer.style.width = "400px";
+    demoContainer.style.height = "400px";
+    demoContainer.style.border = "2px solid black";
+    demoContainer.style.overflow = "hidden";
+
+    // And the boxes within it
+    const box1El = document.createElement("div");
+    box1El.style.position = "absolute";
+    box1El.style.cursor = "grab";
+
+    const box2El = document.createElement("div");
+    box2El.style.position = "absolute";
+    box2El.style.cursor = "grab";
+
+    demoContainer.appendChild(box1El);
+    demoContainer.appendChild(box2El);
+
+    const box1 = new AABB(box1El);
+    const box2 = new AABB(box2El);
 });
