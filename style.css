@@ -1,0 +1,76 @@
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+a {
+    color: rgb(91, 91, 91);
+    font-size: smaller;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    border-bottom: 2px solid;
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    font-family: "DM SANS";
+    font-size: 60px;
+    font-weight: 400;
+}
+
+.container {
+    margin-top: 10px;
+    border-bottom: 2px solid;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.column {
+    /*flex: 1;*/
+    padding: 10px;
+}
+
+.column:first-child {
+    flex: 1; 
+}
+
+.column:last-child {
+    flex: 2;  
+}
+
+.column img {
+    max-width: 100%;
+    height: auto;
+}
+
+.button-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+.button-box { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
