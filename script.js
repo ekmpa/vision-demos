@@ -64,5 +64,46 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function isColliding(a, b) {
+        return (
+            a.x < b.x + b.width &&
+            a.x + a.width > b.x &&
+            a.y < b.y + b.height &&
+            a.y + a.height > b.y
+        );
+    }
+
+    function checkCollision() {
+        const box1Bounds = box1.getBounds();
+        const box2Bounds = box2.getBounds();
+        if (isColliding(box1Bounds, box2Bounds)) {
+            box1.element.style.background = "#CD5C5C";
+            box2.element.style.background = "#CD5C5C";
+            box1.element.style.border = "2px solid white";
+            box2.element.style.border = "2px solid white";
+        } else {
+            box1.element.style.background = box1.originalColor;
+            box2.element.style.background = box2.originalColor;
+            box1.element.style.border = box1.originalBorder;
+            box2.element.style.border = box2.originalBorder;
+        }
+    }
+
+    function getRandomPastelColor() {
+        const r = Math.floor(Math.random() * 128) + 127;
+        const g = Math.floor(Math.random() * 128) + 127;
+        const b = Math.floor(Math.random() * 128) + 127;
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    function darkenColor(rgb) {
+        const match = rgb.match(/\d+/g);
+        if (!match) return "black";
+        const r = Math.max(0, match[0] - 50);
+        const g = Math.max(0, match[1] - 50);
+        const b = Math.max(0, match[2] - 50);
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+
     
 });
