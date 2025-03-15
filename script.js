@@ -1,13 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
     class AABB {
-        constructor(element) {
+        constructor(element, existingBox) {
             // to do: can't spawn on each other
             // & add a third box? 
+            const { x, y, width, height } = getNonOverlappingPosition(existingBox);
             this.element = element;
-            this.width = Math.floor(Math.random() * 50) + 60; // Random width  [60, 110]
-            this.height = Math.floor(Math.random() * 50) + 60; // Random height [60, 110]
-            this.x = Math.random() * (400 - this.width);
-            this.y = Math.random() * (400 - this.height);
+            this.width = width; // Random width  [60, 110]
+            this.height = height; // Random height [60, 110]
+            this.x = x;
+            this.y = y;
             this.isDragging = false;
             this.offsetX = 0;
             this.offsetY = 0;
@@ -62,6 +63,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 height: this.height,
             };
         }
+    }
+
+    function getNonOverlappingPosition(existingBox) {
+        let width = Math.floor(Math.random() * 50) + 60;
+        let height = Math.floor(Math.random() * 50) + 60; 
+        let x, y;
+        let maxAttempts = 100;
+        let attempts = 0;
+        
+        do {
+            x = Math.random() * (400 - width);
+            y = Math.random() * (400 - height);
+            attempts++;
+        } while (existingBox && isColliding({ x, y, width, height }, existingBox.getBounds()) && attempts < maxAttempts);
+    
+        return { x, y, width, height };
     }
 
     function isColliding(a, b) {
@@ -126,5 +143,5 @@ document.addEventListener("DOMContentLoaded", function () {
     demoContainer.appendChild(box2El);
 
     const box1 = new AABB(box1El);
-    const box2 = new AABB(box2El);
+    const box2 = new AABB(box2El, box1);
 });
