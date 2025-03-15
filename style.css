@@ -12,6 +12,17 @@ body {
     padding: 0;
 }
 
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .header {
     border-bottom: 2px solid;
     padding: 20px;
@@ -22,6 +33,13 @@ body {
     font-family: "DM SANS";
     font-size: 60px;
     font-weight: 400;
+    animation: fadeSlideIn 1s ease-out forwards;
+}
+
+.header p {
+    opacity: 0;
+    animation: fadeSlideIn 1.5s ease-out forwards;
+    animation-delay: 0.3s;
 }
 
 .container {
