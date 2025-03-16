@@ -15,6 +15,9 @@
 
     
 </head>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 <body>
     <div class="header">
         <h1>VISION-DEMOS</h1>
@@ -70,6 +73,11 @@
         
             One of the other simplest scenarios in which one can perform collision detection is 
             in a 2D space, when handling circles. 
+            <br><br>
+            To do so, one simply checks the distance between the centers of each circle. 
+            If that distance is less than the sum of their radii, they must be colliding. 
+            This equates checking: 
+            <p style="font-family: 'Times New Roman', Times, serif;"> distance = \( \sqrt{(x_{\text{1}} - x_2)^2 + (y_{1} - y_2)^2}  < r_{1} + r_{2} \) </p>
         </div>
         
         <div class="column-right">
@@ -85,7 +93,6 @@
     <script src="AABB.js"></script>
     <script src="circle.js"></script>
     <script src="perlin.js"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </body>
 
