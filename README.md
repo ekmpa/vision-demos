@@ -3,8 +3,6 @@ Computer vision demos / algorithms
 
 ## Object detection 
 - Welzl's Algorithm
-- Bounding box (AABB) collision
-- Circle collision
 - Separating Axis Theorem
 - Ray Casting
 
@@ -27,5 +25,5 @@ For this, could make a thing where you upload your image and can add one of thes
 - Color thresholding for object recognition?
 
 ## PCG
-- Perlin Noise
 - Midpoint Displacement Algorithm
+
