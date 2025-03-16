@@ -1,4 +1,4 @@
-# ComputerVision
+# vision-demos
 Computer vision demos / algorithms.
 Deployed webpage with demos to follow. 
 
