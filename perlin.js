@@ -17,6 +17,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const slider = document.getElementById("perlin-slider");
 
+    // Label to display frequency value
+    const sliderValue = document.createElement("span");
+    sliderValue.style.position = "absolute";
+    sliderValue.style.fontSize = "12px";
+    sliderValue.style.fontFamily = "Arial, sans-serif";
+    sliderValue.style.color = "#333";
+    sliderValue.textContent = slider.value;
+    slider.parentElement.appendChild(sliderValue);
+
+    function updateSliderValue() {
+        sliderValue.textContent = slider.value;
+        const thumbOffset = (slider.offsetWidth - 20) * (slider.value - slider.min) / (slider.max - slider.min);
+        sliderValue.style.left = `${slider.offsetLeft + thumbOffset}px`;
+        sliderValue.style.top = `${slider.offsetTop - 20}px`;
+    }
+
     // Perlin Noise implementation
     class PerlinNoise {
         constructor() {
@@ -95,10 +111,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     renderPerlin2D(parseInt(slider.value));
+    updateSliderValue();
 
-    // Update render on slider change
     slider.addEventListener("input", function () {
         renderPerlin2D(parseInt(slider.value));
+        updateSliderValue();
     });
     
 });

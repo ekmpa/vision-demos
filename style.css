@@ -92,3 +92,59 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: 25px;
+    width: 80%;
+    height: 6px;
+    border-radius: 3px;
+    background: #ddd;
+    outline: none;
+    border: none;
+    transition: background 0.2s;
+}
+
+.slider:hover {
+    background: #bbb;
+}
+
+.slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: #ddd;
+}
+
+.slider::-moz-range-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: #ddd;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #444;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: -4px;
+}
+
+.slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #444;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    background: #222;
+}
