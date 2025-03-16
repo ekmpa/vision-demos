@@ -6,10 +6,14 @@
     <title>vision-demos</title>
     <link rel="stylesheet" href="./style.css">
 
+    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Jersey+10+Charted&display=swap" rel="stylesheet">
+
+    
 </head>
 <body>
     <div class="header">
@@ -29,6 +33,16 @@
 
         <div class="column">
             <h3>Perlin Noise</h3>
+            Perlin Noise is a gradient noise function, used to generate natural-looking terrains or patterns. 
+            <br><br>
+            It is pseudo-random and smooth, better suited for, e.g, simulating smoke than genuinely random generation.
+            <br><br> 
+            It used dot product over each corner of the grid on which it assumes its lay out, which, once interpolated, yields such noise. 
+            <br><br> 
+            The interpolation function choice affects the visual result. 
+            For this visualization, the function used is the <b> fade function,</b>
+            <i> aka Ken Perlin's quintic smoothing function,</i> with formula:
+            <p> \( f(t) \) = 6 \(  t^5 \) - 15 \(  t^4 \) + 10 \( t^3 \)</p> 
         </div>
     </div>
     
@@ -72,6 +86,8 @@
     <script src="AABB.js"></script>
     <script src="circle.js"></script>
     <script src="perlin.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </body>
 
 </html>
