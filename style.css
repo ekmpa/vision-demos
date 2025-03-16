@@ -63,6 +63,19 @@ body {
     flex: 2;  
 }
 
+.column-right {
+    /*flex: 1;*/
+    padding: 10px;
+}
+
+.column-right:first-child {
+    flex: 2; 
+}
+
+.column-right:last-child {
+    flex: 1;  
+}
+
 .column img {
     max-width: 100%;
     height: auto;

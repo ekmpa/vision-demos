@@ -22,27 +22,26 @@
     </div>
 
     <div class="container">
-        <div class="column" style="display: flex; flex-direction: column; align-items: center;">
-            <div id="perlin-demo"></div>
-            <input type="range" 
-                class="slider"
-                id="perlin-slider" 
-                min="10" max="100" value="50">
-            
-        </div>
-
-        <div class="column">
+        <div class="column-right">
             <h3>Perlin Noise</h3>
             Perlin Noise is a gradient noise function, used to generate natural-looking terrains or patterns. 
             <br><br>
             It is pseudo-random and smooth, better suited for, e.g, simulating smoke than genuinely random generation.
-            <br><br> 
-            It used dot product over each corner of the grid on which it assumes its lay out, which, once interpolated, yields such noise. 
+            It uses dot product over each corner of the grid on which it assumes its lay out, which, once interpolated, yields such noise. 
             <br><br> 
             The interpolation function choice affects the visual result. 
             For this visualization, the function used is the <b> fade function,</b>
             <i> aka Ken Perlin's quintic smoothing function,</i> with formula:
             <p> \( f(t) \) = 6 \(  t^5 \) - 15 \(  t^4 \) + 10 \( t^3 \)</p> 
+        </div>
+        
+        <div class="column-right" style="display: flex; flex-direction: column; align-items: center;">
+            <div id="perlin-demo"></div>
+            <input type="range" 
+                class="slider"
+                id="perlin-slider" 
+                style="width: 200px"
+                min="10" max="100" value="50">
         </div>
     </div>
     
@@ -66,15 +65,15 @@
     </div>
 
     <div class="container">
-        <div class="column">
-            <div id="circle-demo"></div>
-        </div>
-
-        <div class="column">
+        <div class="column-right">
             <h3>Collision Detection on circles: the Radius Method</h3>
         
             One of the other simplest scenarios in which one can perform collision detection is 
             in a 2D space, when handling circles. 
+        </div>
+        
+        <div class="column-right">
+            <div id="circle-demo"></div>
         </div>
     </div>
 
