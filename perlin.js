@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
     demoContainer.appendChild(canvas);
     const ctx = canvas.getContext("2d");
 
+    const slider = document.getElementById("perlin-slider");
+
     // Perlin Noise implementation
     class PerlinNoise {
         constructor() {
@@ -79,8 +81,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Render 
-    function renderPerlin2D() {
-        const noiseData = generatePerlin2D(canvas.width, canvas.height, 50);
+    function renderPerlin2D(scale) {
+        const noiseData = generatePerlin2D(canvas.width, canvas.height, scale);
         const imageData = ctx.createImageData(canvas.width, canvas.height);
         for (let i = 0; i < noiseData.length; i++) {
             const value = Math.floor((noiseData[i] + 1) * 128); // Normalize value
@@ -92,5 +94,11 @@ document.addEventListener("DOMContentLoaded", function () {
         ctx.putImageData(imageData, 0, 0);
     }
 
-    renderPerlin2D();
+    renderPerlin2D(parseInt(slider.value));
+
+    // Update render on slider change
+    slider.addEventListener("input", function () {
+        renderPerlin2D(parseInt(slider.value));
+    });
+    
 });
