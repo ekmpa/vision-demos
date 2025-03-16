@@ -1,6 +1,8 @@
 # ComputerVision
-Computer vision demos / algorithms 
+Computer vision demos / algorithms.
+Deployed webpage with demos to follow. 
 
+<!-- 
 ## Object detection 
 - Welzl's Algorithm
 - Separating Axis Theorem
@@ -26,4 +28,4 @@ For this, could make a thing where you upload your image and can add one of thes
 
 ## PCG
 - Midpoint Displacement Algorithm
-
+--> 
