@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Canvas element
     const canvas = document.createElement("canvas");
-    canvas.width = 400;
-    canvas.height = 250;
+    canvas.width = 401;
+    canvas.height = 251;
     demoContainer.appendChild(canvas);
     const ctx = canvas.getContext("2d");
 
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         sliderValue.textContent = slider.value;
         const thumbOffset = (slider.offsetWidth - 20) * (slider.value - slider.min) / (slider.max - slider.min);
         sliderValue.style.left = `${slider.offsetLeft + thumbOffset}px`;
-        sliderValue.style.top = `${slider.offsetTop - 20}px`;
+        sliderValue.style.top = `${slider.offsetTop + 20}px`;
     }
 
     // Perlin Noise implementation
