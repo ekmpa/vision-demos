@@ -1,6 +1,5 @@
 # vision-demos
-Computer vision demos / algorithms.
-Deployed webpage with demos to follow. 
+Computer vision demos / algorithms; see [here](https://ekmpa.github.io/vision-demos/).
 
 <!-- 
 ## Object detection 
